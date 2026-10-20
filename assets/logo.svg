@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" role="img" aria-label="Воды Здоровья">
+  <g transform="translate(8 12)">
+    <path d="M22 2C14 14 7 22 7 32a15 15 0 0 0 30 0C37 22 30 14 22 2Z" fill="none" stroke="#57C9CE" stroke-width="1.8"/>
+    <path d="M22 18c-4.2 6-6.6 10-6.6 14a6.6 6.6 0 0 0 13.2 0c0-4-2.4-8-6.6-14Z" fill="#57C9CE"/>
+  </g>
+  <text x="68" y="50" fill="#EAF3F1"
+        font-family="Cormorant Garamond, Georgia, serif"
+        font-size="27" font-weight="600" letter-spacing="3.4">ВОДЫ ЗДОРОВЬЯ</text>
+  <text x="69" y="66" fill="#A8DED6"
+        font-family="Manrope, Segoe UI, sans-serif"
+        font-size="8" letter-spacing="4.2">МИНЕРАЛЬНАЯ ВОДА · С 2001 ГОДА</text>
+</svg>

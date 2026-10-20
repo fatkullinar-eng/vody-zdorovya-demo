@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Соберите карту России — Воды Здоровья</title>
+<meta name="description" content="Промо-акция «Воды Здоровья»: ответьте на 24 вопроса о воде, соберите карту из 8 федеральных округов и получите шанс на годовой запас воды.">
+<meta name="theme-color" content="#071A24">
+
+<!-- Демо не должно попадать в поиск. Убрать перед публикацией реальной акции. -->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Превью ссылки в мессенджерах. После публикации замените og:image
+     на полный адрес вида https://ваш-домен/assets/og-image.png -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Соберите карту России — Воды Здоровья">
+<meta property="og:description" content="24 вопроса о воде, 8 федеральных округов и годовой запас воды. Соберите всю карту.">
+<meta property="og:image" content="assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Шрифты Google. Если интернета нет — подставятся системные. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-screen="hero">
+
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<!-- ================= ШАПКА ================= -->
+<header class="site-head">
+  <a class="logo" href="#" data-go="hero" aria-label="Воды Здоровья — на главную">
+    <svg class="logo__mark" viewBox="0 0 32 40" aria-hidden="true">
+      <path d="M16 2C10 12 5 18 5 24a11 11 0 0 0 22 0c0-6-5-12-11-22Z" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M16 12c-3 5-5 8-5 11a5 5 0 0 0 10 0c0-3-2-6-5-11Z" fill="currentColor" opacity=".9"/>
+    </svg>
+    <span class="logo__text">Воды Здоровья</span>
+    <span class="logo__tag">демо</span>
+  </a>
+
+  <div class="head-progress" id="head-progress" aria-label="Собрано округов">
+    <span id="head-count">0</span><span class="head-progress__sep">/</span><span>8</span>
+  </div>
+
+  <nav class="head-nav">
+    <a href="rules.html">Правила</a>
+    <button class="head-reset" type="button" id="reset-demo" title="Сбросить прогресс демонстрации">Сбросить</button>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ================= ПЕРВЫЙ ЭКРАН ================= -->
+<section class="screen screen--hero is-active" data-screen="hero" id="screen-hero">
+
+  <div class="hero">
+    <div class="hero__text">
+      <p class="eyebrow">Промо-акция · Воды Здоровья</p>
+      <h1 class="hero__title" tabindex="-1">
+        Соберите карту<br>
+        <em>России</em> —<br>
+        получите год воды
+      </h1>
+      <p class="hero__lead">
+        24 вопроса о нашей воде. 8 федеральных округов. Соберите всю карту —
+        и участвуйте в розыгрыше годового запаса воды для дома.
+      </p>
+      <div class="hero__actions">
+        <button class="btn btn--primary btn--lg" type="button" id="hero-start">Начать собирать</button>
+        <a class="btn btn--ghost btn--lg" href="#how">Как это работает</a>
+      </div>
+      <dl class="hero__stats">
+        <div><dt>24</dt><dd>вопроса о воде</dd></div>
+        <div><dt>8</dt><dd>округов на карте</dd></div>
+        <div><dt>30</dt><dd>первых — без розыгрыша</dd></div>
+      </dl>
+      <p class="fineprint">
+        18+. Сроки акции: __.__.2026 — __.__.2026. Организатор: ООО «______».
+        <a href="rules.html">Правила акции</a>
+      </p>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="bottle">
+        <svg viewBox="0 0 260 520" class="bottle__svg">
+          <defs>
+            <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8DE7E9"/>
+              <stop offset=".55" stop-color="#3FA6AC"/>
+              <stop offset="1" stop-color="#1E6168"/>
+            </linearGradient>
+            <clipPath id="bottleClip">
+              <path d="M108 24h44v28c0 18 8 26 20 34 26 14 38 40 38 80v268c0 30-20 48-50 48h-60c-30 0-50-18-50-48V166c0-40 12-66 38-80 12-8 20-16 20-34V24Z"/>
+            </clipPath>
+          </defs>
+
+          <g clip-path="url(#bottleClip)">
+            <rect x="0" y="0" width="260" height="520" fill="rgba(168,222,214,.05)"/>
+            <rect class="bottle__water" x="0" y="168" width="260" height="360" fill="url(#waterGrad)"/>
+            <path class="bottle__wave" d="M0 176c30-10 55 10 85 0s55 10 85 0 55 10 90 0v30H0Z" fill="rgba(234,243,241,.28)"/>
+            <circle class="bubble bubble--1" cx="92" cy="360" r="4"/>
+            <circle class="bubble bubble--2" cx="150" cy="410" r="6"/>
+            <circle class="bubble bubble--3" cx="118" cy="300" r="3"/>
+            <circle class="bubble bubble--4" cx="168" cy="340" r="5"/>
+          </g>
+
+          <path class="bottle__outline" d="M108 24h44v28c0 18 8 26 20 34 26 14 38 40 38 80v268c0 30-20 48-50 48h-60c-30 0-50-18-50-48V166c0-40 12-66 38-80 12-8 20-16 20-34V24Z" fill="none"/>
+          <rect class="bottle__cap" x="104" y="4" width="52" height="22" rx="5"/>
+        </svg>
+      </div>
+
+      <div class="float-card float-card--prize">
+        <span class="float-card__label">Главный приз</span>
+        <strong>Годовой запас воды</strong>
+        <span>Для дома или офиса</span>
+      </div>
+      <div class="float-card float-card--first">
+        <span class="float-card__num">30</span>
+        <span>человек, которые соберут карту первыми, получают приз без розыгрыша</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- КАК ЭТО РАБОТАЕТ ---------- -->
+  <section class="steps" id="how">
+    <div class="steps__head">
+      <p class="eyebrow">Как это работает</p>
+      <h2 class="h2">Четыре шага до карты</h2>
+    </div>
+    <ol class="steps__list">
+      <li class="step">
+        <span class="step__num">01</span>
+        <h3>Отвечайте</h3>
+        <p>24 коротких вопроса о компании и продукции «Вод Здоровья». Все ответы есть в открытых источниках бренда.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">02</span>
+        <h3>Открывайте округа</h3>
+        <p>Каждые три верных ответа открывают один федеральный округ на виртуальной карте.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">03</span>
+        <h3>Собирайте карту</h3>
+        <p>Не хватает округа? Отправьте другу ссылку: он ответит на один вопрос, и округ засчитается вам.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">04</span>
+        <h3>Получайте приз</h3>
+        <p>Все 8 округов — участие в розыгрыше годового запаса воды. Первые 30 собравших получают его без розыгрыша.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ---------- ФАКТЫ О БРЕНДЕ ---------- -->
+  <section class="brand-strip">
+    <div class="brand-strip__intro">
+      <p class="eyebrow">Воды Здоровья · с 2001 года</p>
+      <h2 class="h2">Вода, которую<br>не нужно улучшать</h2>
+      <p>Собственный завод, скважина глубиной более 100 метров и природный состав без сложных систем очистки.</p>
+    </div>
+    <dl class="brand-facts">
+      <div><dt>100+</dt><dd>метров глубина скважины</dd></div>
+      <div><dt>50+</dt><dd>регионов присутствия</dd></div>
+      <div><dt>2 млн</dt><dd>бутылок в месяц</dd></div>
+      <div><dt>2014</dt><dd>год открытия завода</dd></div>
+    </dl>
+  </section>
+
+  <section class="hero-cta">
+    <h2 class="h2">Начните с первого округа</h2>
+    <p>24 вопроса — это примерно пять минут. Прогресс сохраняется в браузере.</p>
+    <button class="btn btn--primary btn--lg" type="button" data-start>Начать собирать</button>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__main">
+      <a class="logo logo--footer" href="#" data-go="hero">
+        <svg class="logo__mark" viewBox="0 0 32 40" aria-hidden="true">
+          <path d="M16 2C10 12 5 18 5 24a11 11 0 0 0 22 0c0-6-5-12-11-22Z" fill="none" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M16 12c-3 5-5 8-5 11a5 5 0 0 0 10 0c0-3-2-6-5-11Z" fill="currentColor" opacity=".9"/>
+        </svg>
+        <span class="logo__text">Воды Здоровья</span>
+      </a>
+      <nav class="footer__nav">
+        <a href="rules.html">Правила акции</a>
+        <a href="privacy.html">Персональные данные</a>
+        <a href="https://www.healthwaters.ru/about/" target="_blank" rel="noopener">О компании</a>
+      </nav>
+    </div>
+    <p class="footer__note">
+      Демонстрационный макет. Не является офертой и правилами реальной акции.
+      Телефон бренда: 8 800 100 15 15.
+    </p>
+  </footer>
+</section>
+
+<!-- ================= КВИЗ ================= -->
+<section class="screen screen--quiz" data-screen="quiz" id="screen-quiz">
+  <div class="quiz">
+    <div class="quiz__meta">
+      <span class="eyebrow" id="quiz-district">Центральный округ</span>
+      <span class="quiz__counter" id="quiz-counter">Вопрос 1 из 3</span>
+    </div>
+
+    <div class="quiz__bar" aria-hidden="true"><span id="quiz-bar"></span></div>
+    <p class="quiz__global"><span id="quiz-global">Открыто округов: 0 из 8</span><span id="quiz-answers">Верных ответов: 0 из 24</span></p>
+
+    <div class="quiz__card" id="quiz-card">
+      <h2 class="quiz__question" id="quiz-question" tabindex="-1">Вопрос</h2>
+      <div class="quiz__options" id="quiz-options"></div>
+
+      <div class="quiz__feedback" id="quiz-feedback" role="status" aria-live="polite" hidden></div>
+
+      <div class="quiz__actions" id="quiz-actions" hidden>
+        <button class="btn btn--primary" type="button" id="quiz-next">Дальше</button>
+      </div>
+    </div>
+
+    <div class="quiz__foot">
+      <button class="link-btn" type="button" data-go="map">К карте</button>
+      <span>Три верных ответа открывают округ</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КАРТА ================= -->
+<section class="screen screen--map" data-screen="map" id="screen-map">
+  <div class="map-layout">
+
+    <div class="map-panel">
+      <div class="map-panel__head">
+        <div>
+          <p class="eyebrow">Ваша карта</p>
+          <h1 class="h2" tabindex="-1">Собрано <span id="map-count">0</span> из 8 округов</h1>
+        </div>
+        <div class="map-progress" id="map-progress" aria-hidden="true"></div>
+      </div>
+
+      <div class="map-wrap">
+        <div class="map" id="map-hub">
+          <svg viewBox="0 0 1000 560" role="group" aria-label="Карта федеральных округов России">
+            <g class="map__grid" aria-hidden="true">
+              <path d="M0 120h1000M0 240h1000M0 360h1000M0 480h1000"/>
+              <path d="M160 0v560M320 0v560M480 0v560M640 0v560M800 0v560M960 0v560"/>
+            </g>
+
+            <g class="map__contours" aria-hidden="true">
+              <path d="M120 210c90-60 180-90 280-80s180 70 260 60 150-60 230-40"/>
+              <path d="M90 330c120-50 210-40 300 0s190 80 300 40 170-60 220-30"/>
+              <path d="M210 120c60 40 110 90 140 160"/>
+              <path d="M690 130c40 60 60 120 50 200"/>
+            </g>
+
+            <!-- Общий силуэт страны: соединяет кусочки в одну карту -->
+            <path class="map__land" aria-hidden="true"
+              d="M58 196 L88 92 L196 52 L322 52 L440 54 L498 72 L528 108 L564 172 L624 162 L704 142 L768 132 L824 158 L872 132 L932 128 L982 164 L998 228 L988 290 L968 342 L948 382 L922 412 L892 432 L862 412 L848 372 L828 330 L788 366 L738 378 L692 358 L664 340 L618 368 L568 368 L514 372 L468 392 L422 386 L396 354 L362 382 L358 428 L328 460 L280 470 L238 450 L208 414 L190 372 L198 332 L188 304 L172 264 L156 268 L116 256 L76 258 Z"/>
+
+            <path class="map__district" data-district="szfo" tabindex="0" role="button" aria-label="Северо-Западный округ"
+              d="M76 258 L58 196 L62 140 L88 92 L132 68 L196 52 L262 62 L322 52 L382 66 L440 54 L498 72 L528 108 L520 150 L486 186 L440 210 L392 232 L342 246 L292 256 L242 262 L196 252 L156 268 L116 256 Z"/>
+            <path class="map__district" data-district="cfo" tabindex="0" role="button" aria-label="Центральный округ"
+              d="M176 238 L232 226 L292 220 L352 228 L398 258 L406 312 L378 350 L330 372 L272 368 L220 342 L188 304 L172 264 Z"/>
+            <path class="map__district" data-district="yfo" tabindex="0" role="button" aria-label="Южный округ"
+              d="M198 332 L244 314 L292 322 L338 344 L362 382 L358 428 L328 460 L280 470 L238 450 L208 414 L190 372 Z"/>
+            <path class="map__district" data-district="skfo" tabindex="0" role="button" aria-label="Северо-Кавказский округ"
+              d="M336 378 L356 342 L396 346 L422 378 L418 416 L386 438 L350 428 L334 402 Z"/>
+            <path class="map__district" data-district="pfo" tabindex="0" role="button" aria-label="Приволжский округ"
+              d="M388 238 L444 212 L500 206 L536 232 L552 284 L546 336 L514 372 L468 392 L422 386 L396 354 L386 302 Z"/>
+            <path class="map__district" data-district="ufo" tabindex="0" role="button" aria-label="Уральский округ"
+              d="M508 202 L564 172 L624 162 L670 188 L690 238 L690 294 L664 340 L618 368 L568 368 L546 336 L552 284 L536 232 Z"/>
+            <path class="map__district" data-district="sfo" tabindex="0" role="button" aria-label="Сибирский округ"
+              d="M644 178 L704 142 L768 132 L824 158 L850 214 L854 274 L828 330 L788 366 L738 378 L692 358 L688 300 L690 238 Z"/>
+            <path class="map__district" data-district="dfo" tabindex="0" role="button" aria-label="Дальневосточный округ"
+              d="M812 162 L872 132 L932 128 L982 164 L998 228 L988 290 L968 342 L948 382 L922 412 L892 432 L862 412 L848 372 L852 320 L854 274 L850 214 Z"/>
+            <path class="map__district map__district--small" data-district="szfo" tabindex="0" role="button" aria-label="Калининградская область"
+              d="M30 268 L52 258 L72 266 L74 284 L54 294 L32 286 Z"/>
+          </svg>
+
+          <div class="map__labels" aria-hidden="true">
+            <span class="map__label" data-label="szfo" style="left:29%;top:27%">Северо-Запад</span>
+            <span class="map__label" data-label="cfo" style="left:28.5%;top:52.5%">Центр</span>
+            <span class="map__label" data-label="yfo" style="left:27.5%;top:70.5%">Юг</span>
+            <span class="map__label" data-label="skfo" style="left:38%;top:70%">Кавказ</span>
+            <span class="map__label" data-label="pfo" style="left:47%;top:52.5%">Поволжье</span>
+            <span class="map__label" data-label="ufo" style="left:60%;top:47.5%">Урал</span>
+            <span class="map__label" data-label="sfo" style="left:76%;top:45%">Сибирь</span>
+            <span class="map__label" data-label="dfo" style="left:91.5%;top:47.5%">Дальний Восток</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="map-legend">Залитый округ — собран. Пунктир — ещё не открыт. Карта схематичная.</p>
+      <ul class="map-list" id="map-list" aria-label="Статус округов"></ul>
+    </div>
+
+    <aside class="map-side">
+      <div class="card prize-card">
+        <p class="eyebrow">Главный приз</p>
+        <h2>Годовой запас воды</h2>
+        <p>Соберите все 8 округов — и участвуйте в розыгрыше. Первые 30 собравших получают приз без розыгрыша.</p>
+      </div>
+
+      <div class="card missing-card">
+        <h2 class="card__title">Не хватает <span id="missing-count">8</span></h2>
+        <p class="card__lead" id="missing-lead">Каждый округ открывается тремя верными ответами.</p>
+        <div class="chips" id="missing-chips"></div>
+
+        <button class="btn btn--primary btn--wide" type="button" id="share-cta">Позвать друга</button>
+        <button class="btn btn--ghost btn--wide" type="button" id="continue-quiz">Продолжить квиз</button>
+      </div>
+
+      <div class="card first-card">
+        <span class="first-card__num">30</span>
+        <div>
+          <h2 class="card__title">Первые тридцать</h2>
+          <p>Столько участников получат годовой запас воды без розыгрыша. В демо-версии счётчик не ведётся.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Плашка «округ собран» -->
+  <div class="district-toast" id="district-toast" role="status" aria-live="polite" hidden>
+    <div class="district-toast__mark">✓</div>
+    <div class="district-toast__text">
+      <p class="eyebrow">Округ собран</p>
+      <h3 id="toast-title">Центральный округ</h3>
+      <p id="toast-text">На карте 1 из 8 округов.</p>
+    </div>
+    <div class="district-toast__actions">
+      <button class="btn btn--primary btn--sm" type="button" id="toast-next">Следующий округ</button>
+      <button class="link-btn" type="button" id="toast-close">Закрыть</button>
+    </div>
+  </div>
+
+  <!-- Окно шеринга -->
+  <div class="sheet" id="share-sheet" role="dialog" aria-modal="true" aria-labelledby="share-title" hidden>
+    <div class="sheet__backdrop" data-close-sheet></div>
+    <div class="sheet__panel">
+      <button class="sheet__close" type="button" aria-label="Закрыть" data-close-sheet>×</button>
+
+      <p class="eyebrow">Помощь друга</p>
+      <h2 class="sheet__title" id="share-title">Один вопрос — и округ ваш</h2>
+      <p class="sheet__lead">
+        Друг отвечает на один вопрос о воде. За это вам засчитывается недостающий округ,
+        а друг открывает свою карту.
+      </p>
+
+      <div class="share-pick">
+        <span class="share-pick__label">Какой округ попросить</span>
+        <div class="chips" id="share-districts"></div>
+      </div>
+
+      <label class="share-link">
+        <span>Персональная ссылка</span>
+        <div class="share-link__row">
+          <input id="share-url" type="text" readonly>
+          <button class="btn btn--primary btn--sm" type="button" id="share-copy">Копировать</button>
+        </div>
+      </label>
+      <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
+
+      <div class="share-messengers">
+        <a class="share-btn" id="share-tg" href="#" target="_blank" rel="noopener">Telegram</a>
+        <a class="share-btn" id="share-vk" href="#" target="_blank" rel="noopener">ВКонтакте</a>
+        <a class="share-btn" id="share-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <button class="share-btn" type="button" id="share-max">Max · скопировать</button>
+        <button class="share-btn" type="button" id="share-native" hidden>Поделиться</button>
+      </div>
+
+      <div class="share-demo">
+        <p>Демонстрация механики: откройте ссылку как друг на этом же устройстве.</p>
+        <button class="link-btn" type="button" id="share-demo-open">Посмотреть глазами друга</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН ДРУГА ================= -->
+<section class="screen screen--friend" data-screen="friend" id="screen-friend">
+  <div class="friend">
+    <a class="logo logo--dark" href="#" data-go="hero">
+      <svg class="logo__mark" viewBox="0 0 32 40" aria-hidden="true">
+        <path d="M16 2C10 12 5 18 5 24a11 11 0 0 0 22 0c0-6-5-12-11-22Z" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M16 12c-3 5-5 8-5 11a5 5 0 0 0 10 0c0-3-2-6-5-11Z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <span class="logo__text">Воды Здоровья</span>
+      <span class="logo__tag">демо</span>
+    </a>
+
+    <div class="friend__card" id="friend-main">
+      <p class="eyebrow">Вам передали эстафету</p>
+      <h1 class="h2">Друг собирает карту России</h1>
+      <p class="friend__lead">
+        Ответьте на один вопрос о воде — и нужный округ засчитается другу.
+        Заодно откроете свою карту.
+      </p>
+
+      <div class="friend__district">
+        <span>Нужен округ</span>
+        <strong id="friend-district">Уральский</strong>
+      </div>
+
+      <div class="quiz__card quiz__card--friend">
+        <p class="quiz__counter" id="friend-counter">Вопрос для друга</p>
+        <h2 class="quiz__question" id="friend-question">Вопрос</h2>
+        <div class="quiz__options" id="friend-options"></div>
+        <div class="quiz__feedback" id="friend-feedback" role="status" aria-live="polite" hidden></div>
+        <div class="quiz__actions" id="friend-actions" hidden>
+          <button class="btn btn--primary" type="button" id="friend-next">Помочь другу</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="friend__own" id="friend-own" hidden>
+      <div class="thanks__mark">↗</div>
+      <p class="eyebrow">Это ваша ссылка</p>
+      <h1 class="h2">Передайте её другу</h1>
+      <p>
+        Когда друг откроет ссылку и ответит на один вопрос, недостающий округ
+        засчитается вам автоматически. Себе по своей же ссылке округ не начисляется.
+      </p>
+      <button class="btn btn--primary" type="button" data-go="map">К моей карте</button>
+    </div>
+
+    <div class="friend__done" id="friend-done" hidden>
+      <div class="thanks__mark">✓</div>
+      <p class="eyebrow">Готово</p>
+      <h1 class="h2">Округ засчитан другу</h1>
+      <p id="friend-done-text">Друг получил недостающий округ. Спасибо за помощь.</p>
+      <div class="friend__done-actions">
+        <button class="btn btn--primary" type="button" id="friend-return" hidden>Вернуться к карте друга</button>
+        <button class="btn btn--ghost" type="button" id="friend-start">Начать свою карту</button>
+      </div>
+    </div>
+
+    <p class="fineprint fineprint--center">
+      18+. Демонстрационный макет акции «Воды Здоровья». <a href="rules.html">Правила</a>
+    </p>
+  </div>
+</section>
+
+<!-- ================= ФИНАЛ ================= -->
+<section class="screen screen--final" data-screen="final" id="screen-final">
+  <div class="final">
+    <div class="final__head">
+      <p class="eyebrow">8 из 8 · карта собрана</p>
+      <h1 class="h2" tabindex="-1">У вас вся Россия</h1>
+      <p class="final__lead">
+        Вы собрали все восемь округов и участвуете в розыгрыше годового запаса воды.
+        Осталось оставить контакты — в демо-версии они никуда не отправляются.
+      </p>
+      <div class="final__badges">
+        <span class="badge badge--gold">Первые 30</span>
+        <span class="badge">Номер участника <strong id="participant-number">—</strong></span>
+      </div>
+    </div>
+
+    <div class="final__grid">
+      <div class="final__map" id="final-map" aria-hidden="true"></div>
+
+      <form class="form-card" id="final-form" novalidate>
+        <h2 class="form-card__title">Заявка на приз</h2>
+        <p class="form-note">
+          Демо-форма. Данные не отправляются и не сохраняются. Не вводите настоящие
+          номер телефона и почту.
+        </p>
+
+        <label class="field">
+          <span>Имя</span>
+          <input id="field-name" name="name" type="text" autocomplete="off" placeholder="Как к вам обращаться">
+        </label>
+        <label class="field">
+          <span>Телефон</span>
+          <input id="field-phone" name="phone" type="tel" autocomplete="off" placeholder="Демо-номер">
+        </label>
+        <label class="field">
+          <span>E-mail <i>необязательно</i></span>
+          <input id="field-email" name="email" type="email" autocomplete="off" placeholder="demo@example.ru">
+        </label>
+
+        <label class="check">
+          <input type="checkbox" id="check-age">
+          <span>Мне есть 18 лет</span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="check-consent">
+          <span>Принимаю <a href="rules.html">правила акции</a> и согласен на <a href="privacy.html">обработку персональных данных</a></span>
+        </label>
+
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+
+        <button class="btn btn--primary btn--wide" type="submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= СПАСИБО ================= -->
+<section class="screen screen--thanks" data-screen="thanks" id="screen-thanks">
+  <div class="thanks">
+    <div class="thanks__mark">✓</div>
+    <p class="eyebrow">Заявка принята</p>
+    <h1 class="h2" tabindex="-1">Спасибо, карта собрана</h1>
+    <p class="thanks__lead">
+      Ваш номер участника — <strong id="thanks-number">—</strong>.
+      В демо-версии заявка никуда не отправляется, а номер существует только в этом браузере.
+    </p>
+    <div class="thanks__actions">
+      <button class="btn btn--primary" type="button" data-go="map">Вернуться к карте</button>
+      <a class="btn btn--ghost" href="rules.html">Правила акции</a>
+    </div>
+    <p class="fineprint fineprint--center">
+      Демонстрационный макет. Не является офертой. <a href="privacy.html">Персональные данные</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>
